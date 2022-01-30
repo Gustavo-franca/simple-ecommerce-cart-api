@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  redis:
+    container_name: redis
+    image: redis
+    networks:
+      - redis-net
+    ports:
+      - 6379:6379
+    command: >
+      --requirepass secret
+networks:
+  redis-net: { }
