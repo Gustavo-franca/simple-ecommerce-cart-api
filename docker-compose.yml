@@ -1,13 +1,30 @@
 version: '3'
 
 services:
+  cart-api:
+    build:
+      context: .
+    container_name: cart-api
+    image: gustavofranca/simple-ecommerce-cart-api
+    networks:
+      - redis-net
+    environment:
+      - KVS_HOST=redis
+      - KVS_PORT=6379
+      - KVS_PASSWORD=secret
+      - PORT=3333
+    ports:
+      - "3333:3333"
+    depends_on:
+      - redis
+    entrypoint: dockerize -timeout 250s -wait tcp://redis:6379 npm run
+    command: compile-and-start
+    restart: always
   redis:
     container_name: redis
     image: redis
     networks:
       - redis-net
-    ports:
-      - 6379:6379
     command: >
       --requirepass secret
 networks:

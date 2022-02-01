@@ -1,17 +1,18 @@
 {
-  "name": "script",
+  "name": "cart-api",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node dist/index.js",
     "start:ts": "ts-node src/index.ts",
     "start:debug": "node --inspect=5858 -r ts-node/register src/index.ts",
     "dev": "nodemon",
     "test": "NODE_ENV=test mocha --require=ts-node/register --recursive --exit 'src/**/*.spec.ts'",
-    "compile": "rm -rf build/* && tsc",
+    "compile": "rm -rf dist/* && tsc",
     "normalize": "npm run format && npm run lint",
     "format": "prettier --write --loglevel=warn 'src/**/*.ts'",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "compile-and-start": "npm run compile && npm run start"
   },
   "dependencies": {
     "cors": "^2.8.5",
