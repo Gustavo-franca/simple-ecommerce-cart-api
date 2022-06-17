@@ -15,6 +15,12 @@
     "compile-and-start": "npm run compile && npm run start"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.0.4",
+    "@opentelemetry/auto-instrumentations-node": "^0.27.4",
+    "@opentelemetry/exporter-jaeger": "^1.0.1",
+    "@opentelemetry/instrumentation-redis": "^0.29.0",
+    "@opentelemetry/propagator-ot-trace": "^0.25.1",
+    "@opentelemetry/sdk-node": "^0.27.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "tedis": "^0.1.12",
@@ -23,8 +29,10 @@
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {
+    "@opentelemetry/node": "^0.24.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "http-proxy-middleware": "^2.0.3",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.2",
     "tslint": "^5.11.0",

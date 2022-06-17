@@ -3,6 +3,7 @@ type Config = {
   kvs_host: string;
   kvs_port: number;
   kvs_password: string;
+  tracer_host: string;
 };
 
 const getNumberOrDefault = (
@@ -26,6 +27,7 @@ const config: Config = {
   kvs_host: getStringOrDefault(process.env.KVS_HOST, '127.0.0.1'),
   kvs_port: getNumberOrDefault(process.env.KVS_PORT, 6379),
   kvs_password: getStringOrDefault(process.env.KVS_PASSWORD, 'secret'),
+  tracer_host: getStringOrDefault(process.env.TRACER_HOST, 'localhost'),
 };
 
 export default config;
